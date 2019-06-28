@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/employeeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:ems="10"
+        android:foregroundGravity="center|center_horizontal"
+        android:gravity="center"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/employeePosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:foregroundGravity="center|center_horizontal"
+        android:gravity="center"
+        android:hint="Position"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/employeeName"
+        app:layout_constraintTop_toBottomOf="@+id/employeeName" />
+
+    <EditText
+        android:id="@+id/employeeJoinedYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:ems="10"
+        android:foregroundGravity="center|center_horizontal"
+        android:gravity="center"
+        android:hint="Joined on (YEAR)"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/employeePosition"
+        app:layout_constraintTop_toBottomOf="@+id/employeePosition" />
+
+    <Button
+        android:id="@+id/addEmployeeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="Add employee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/employeeJoinedYear" />
+
+</android.support.constraint.ConstraintLayout>
