@@ -22,7 +22,7 @@ public class CompanyDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+companyTable+" (CompanyID INTEGER PRIMARY KEY AUTOINCREMENT , CompanyName Text, CompanyWebsite Text) ");
-        db.execSQL("create table "+employeeTable+" (EmployeeID INTEGER PRIMARY KEY AUTOINCREMENT, CompanyID INTEGER, EmployeeName TEXT, EmployeePosition TEXT, EmployeeJoinedOn Text) ");
+        db.execSQL("create table "+employeeTable+" (EmployeeID INTEGER, CompanyID INTEGER, EmployeeName TEXT, EmployeePosition TEXT, EmployeeJoinedOn Text) ");
     }
 
     @Override
@@ -50,6 +50,7 @@ public class CompanyDatabase extends SQLiteOpenHelper {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("CompanyID", companyID);
+        contentValues.put("EmployeeID", counter(companyID)+1);
         contentValues.put("EmployeeName", name);
         contentValues.put("EmployeePosition", position);
         contentValues.put("EmployeeJoinedOn", joinedOn);
@@ -111,5 +112,11 @@ public class CompanyDatabase extends SQLiteOpenHelper {
 
         db.update(companyTable, contentValues, "CompanyID = ?", new String[] {ID});
 
+    }
+
+    public int counter(int companyID){
+        Cursor res = viewAllEmployeeData(companyID);
+        int count = res.getCount();
+        return count;
     }
 }

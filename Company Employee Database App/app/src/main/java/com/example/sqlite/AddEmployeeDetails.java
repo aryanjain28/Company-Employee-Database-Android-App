@@ -43,21 +43,27 @@ public class AddEmployeeDetails extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean x = companyDatabase.addEmployeeDetails(
-                                companyID,
-                                employeeName.getText().toString(),
-                                employeePosition.getText().toString(),
-                                employeeJoinedYear.getText().toString()
-                                );
 
-                        if(x) {
-                            employeeName.setText("");
-                            employeePosition.setText("");
-                            employeeJoinedYear.setText("");
-                            Toast.makeText(AddEmployeeDetails.this, "Employee added.", Toast.LENGTH_SHORT).show();
+                        String name = employeeName.getText().toString();
+                        if (name.equals("")){
+                            Toast.makeText(AddEmployeeDetails.this, "Please write employee name.", Toast.LENGTH_SHORT).show();
                         }
-                        else
-                            Toast.makeText(AddEmployeeDetails.this, "Employee not added.", Toast.LENGTH_SHORT).show();
+                        else {
+                            boolean x = companyDatabase.addEmployeeDetails(
+                                    companyID,
+                                    employeeName.getText().toString(),
+                                    employeePosition.getText().toString(),
+                                    employeeJoinedYear.getText().toString()
+                            );
+
+                            if (x) {
+                                employeeName.setText("");
+                                employeePosition.setText("");
+                                employeeJoinedYear.setText("");
+                                Toast.makeText(AddEmployeeDetails.this, "Employee added.", Toast.LENGTH_SHORT).show();
+                            } else
+                                Toast.makeText(AddEmployeeDetails.this, "Employee not added.", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }

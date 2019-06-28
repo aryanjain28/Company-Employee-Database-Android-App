@@ -8,13 +8,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/emptyMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="234dp"
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:text="No company added press plus icon below to add details of company"
@@ -58,8 +59,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="Companies"
         app:layout_constraintBottom_toTopOf="@+id/companyListView"
         app:layout_constraintEnd_toEndOf="parent"

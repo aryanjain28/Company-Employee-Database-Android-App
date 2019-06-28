@@ -34,18 +34,23 @@ public class AddCompanyDetails extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean x = companyDatabase.addCompanyDetails(
-                                companyName.getText().toString(),
-                                companyWebsite.getText().toString()
-                        );
 
-                        if(x) {
-                            Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
-                            companyName.setText("");
-                            companyWebsite.setText("");
+                        String name = companyName.getText().toString();
+                        if(name.equals(""))
+                            Toast.makeText(AddCompanyDetails.this, "Please write company name.", Toast.LENGTH_SHORT).show();
+                        else {
+                            boolean x = companyDatabase.addCompanyDetails(
+                                    name,
+                                    companyWebsite.getText().toString()
+                            );
+
+                            if (x) {
+                                Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show();
+                                companyName.setText("");
+                                companyWebsite.setText("");
+                            } else
+                                Toast.makeText(context, "Not added.", Toast.LENGTH_SHORT).show();
                         }
-                        else
-                            Toast.makeText(context, "Not added.", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
